@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 
 export default function Navbar(props) {
   return (
    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
-  <a className="navbar-brand" href="/">{props.title}</a>
+  <Link className="navbar-brand" href="/">{props.title}</Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -13,16 +14,16 @@ export default function Navbar(props) {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-        <a className="nav-link" href="/">{props.home} <span className="sr-only">(current)</span></a>
+      <Link  className="nav-link" to="/">{props.home} <span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/">{props.about}</a>
+        <Link className="nav-link" to="/about">{props.about}</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/">{props.gallery}</a>
+        <Link className="nav-link" to="/Gallery">{props.gallery}</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/">{props.contact}</a>
+        <Link className="nav-link" to="/contact">{props.contact}</Link>
       </li>
 
     </ul>
@@ -32,7 +33,7 @@ export default function Navbar(props) {
     </form> */}
     <div class={`form-check form-switch text-${props.mode==='light'?"dark":"light"}`}>
   <input class="form-check-input"  onChange={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault"/>
-  <label class="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode==='light'?"enable dark mode":"enable light mode"}</label>
+  <label class="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode==='light'?"enable light  mode":"enable dark mode"}</label>
 </div>
    
   </div>

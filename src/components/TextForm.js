@@ -3,29 +3,42 @@ import React, { useState } from 'react'
 
 
 export default function TextForm(props) {
+  const [text, setText] = useState('');
 
+  
     const upclick = ()=>{
         let newText = text.toUpperCase();
         setText(newText)
+        props.showalert("UpperCase Converted","success")
+        document.title ="Uppercase Converted";
     }
     const toclick = ()=>{
         let newText = text.toLowerCase();
         setText(newText)
+        props.showalert("Lowercase Converted","success")
+        document.title ="Lowercase Converted";
     }
     const toclear = ()=>{
       let newText ="";
       setText(newText)
+      props.showalert("clear text","success")
+      document.title ="clear text";
   } 
 
   const tocopy = ()=> {
     var text  = document.getElementById('box');
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showalert("Copy Success","success")
+    document.title ="Copy Success";
   }
 
   const remove_space = ()=> {
   let newText = text.split(/[ ] +/);
   setText(newText.join(" "));
+  props.showalert("Remove Space","success")
+  document.title ="Remove Space";
+  
   }
   
  
@@ -33,7 +46,7 @@ export default function TextForm(props) {
     const headingupclick = (event)=>{
         setText(event.target.value);
     }
-    const [text, setText] = useState('');
+   
   return (
     <>
     <form>
